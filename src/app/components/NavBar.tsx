@@ -4,7 +4,7 @@ import styled from "styled-components";
 export default function NavBar () {
     return <nav>
         <List>
-            <Item><NavLink to="/home">Home</NavLink></Item>
+            <Item><NavLink to="/">Home</NavLink></Item>
             <Item><NavLink to="/editores">Editores</NavLink></Item>
             <Item><NavLink to="/posts/criar">Novo post</NavLink></Item> 
         </List>

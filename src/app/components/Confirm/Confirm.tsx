@@ -3,8 +3,8 @@ import Button from "../Button/Button"
 
 export interface ConfirmProps {
     title: string
-    onConfirm: () => any
-    onCancel: () => any
+    onConfirm?: (...args: any[]) => void
+    onCancel?: (...args: any[]) => void
 }
 
 export default function Confirm (props: ConfirmProps) {

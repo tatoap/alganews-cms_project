@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { User } from "../../sdk/@types";
-import UserService from "../../sdk/services/User.service";
+import Skeleton from "react-loading-skeleton";
 import Profile from "../components/Profile";
+import { getEditorDescription, User, UserService } from "tato_ap-sdk";
 
 export default function EditorsList () {
     const [editors, setEditors] = useState<User.EditorSummary[]>([])
@@ -13,13 +13,21 @@ export default function EditorsList () {
             .then(setEditors)
     }, [])
 
+    if (!editors.length)
+        return <EditorsListWrapper>
+            <Skeleton height={82}/>
+            <Skeleton height={82}/>
+            <Skeleton height={82}/>
+        </EditorsListWrapper>
+
     return <EditorsListWrapper>
         {
             editors.map(editor => {
-                return <Profile 
+                return <Profile
+                    key={editor.id}
                     editorId={editor.id}
                     name={editor.name}
-                    description={'Editor há x meses'}
+                    description={ getEditorDescription(new Date(editor.createdAt)) }
                     avatarUrl={editor.avatarUrls.small}
                 />
             })

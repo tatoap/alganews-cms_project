@@ -2,9 +2,9 @@ import { WithContext as ReactTagInput, Tag } from 'react-tag-input';
 import * as TI from './TagInput.styles'
 
 export interface TagInputProps {
-    onAdd: (tag: Tag) => any,
-    onDelete: (i: number) => any,
-    tags: Tag[],
+    onAdd: (tag: Tag) => any
+    onDelete: (i: number) => any
+    tags: Tag[]
     placeholder: string
 }
 
